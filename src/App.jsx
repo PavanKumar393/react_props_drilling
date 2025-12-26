@@ -1,6 +1,12 @@
 import Section from "./components/Section";
+import { ReactLenis, useLenis } from 'lenis/react'
 
 const App = () => {
+
+  const lenis = useLenis((lenis) => {
+    // called every scroll
+    console.log(lenis)
+  })
   const demonSlayerCharacters = [
     {
       image:
@@ -72,9 +78,13 @@ const App = () => {
   ];
 
   return (
-    <div>
-      <Section cardObj={demonSlayerCharacters} />
-    </div>
+    <>
+      <ReactLenis
+       root />
+      <div>
+        <Section cardObj={demonSlayerCharacters} />
+      </div>
+    </>
   );
 };
 
